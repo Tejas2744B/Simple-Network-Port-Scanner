@@ -1,41 +1,43 @@
-# Simple-Network-Port-Scanner
-Simple Network Port Scanner
+# 🌐 Simple Network Port Scanner
 
+This project is a basic command-line tool built using Python's standard `socket` library to scan a specified host for open TCP ports. It serves as an introduction to **network security fundamentals** and the concept of **port enumeration**.
 
-Example Session
-The script will first present a mandatory ethical warning before proceeding.
+This project was developed as a solution for **Task 4: Simple Network Port Scanner**.
 
---- 🛡️ Simple Network Port Scanner Tool 🛡️
-WARNING: Only scan targets you own or have explicit authorization for.
---------------------------------------------------
+## ⚠️ ETHICAL HACKING WARNING: AUTHORIZED USE ONLY
 
+**The primary and mandatory rule of using this tool is to scan only targets that you explicitly own or for which you have written, unambiguous authorization from the owner.**
 
-*** ETHICAL HACKING NOTE ***
-Scanning unauthorized networks is illegal and unethical. This tool is for educational purposes only.
-Press Enter to continue (by doing so, you acknowledge the ethical warning):
+* **Scanning unauthorized networks is illegal, unethical, and can lead to severe penalties.**
+* This tool is provided for **educational purposes** only: to understand network protocols, socket programming, and basic security concepts.
+* By using this tool, you take full responsibility for its deployment.
 
-Enter the target IP address or hostname: 127.0.0.1
-Enter starting port (e.g., 1): 20
-Enter ending port (e.g., 100): 100
+## ✨ Features
 
-Scanning target: 127.0.0.1 (Range: 20-100)
-Start Time: 21:50:00
---------------------------------------------------
-[+] Port 22   is OPEN  | Service: SSH (Secure Shell)
-[+] Port 80   is OPEN  | Service: HTTP (HyperText Transfer Protocol)
---------------------------------------------------
-✅ Scan Complete. Found Open Ports:
-  > Port 22 (SSH (Secure Shell))
-  > Port 80 (HTTP (HyperText Transfer Protocol))
-End Time: 21:50:02
---------------------------------------------------
-🛠️ Implementation Details
-The core functionality relies on the following steps for each port:
+* **Customizable Range:** Allows the user to specify a start and end port number (1-65535).
+* **Timeout Mechanism:** Implements a connection timeout (`DEFAULT_TIMEOUT = 1.0s`) using `socket.settimeout()` to prevent the scanner from hanging indefinitely on filtered or closed ports.
+* **Service Description:** Outputs a simple description for common ports (e.g., 80 is HTTP, 443 is HTTPS).
+* **Robust Error Handling:** Catches `socket.gaierror` (hostname resolution failure) and other connection errors.
 
-Socket Creation: socket.socket(socket.AF_INET, socket.SOCK_STREAM) creates a TCP socket.
+## ⚙️ Requirements & Installation
 
-Timeout Setting: sock.settimeout(timeout) limits the waiting time.
+### Prerequisites
 
-Connection Attempt: sock.connect_ex((target_ip, port)) attempts a non-blocking connection. A return value of 0 indicates the port is open.
+* Python 3.x (Uses standard library only)
 
-Resource Cleanup: sock.close() ensures system resources are released.
+### Setup
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/YourUsername/simple-port-scanner.git](https://github.com/YourUsername/simple-port-scanner.git)
+    cd simple-port-scanner
+    ```
+
+2.  **No external dependencies are required.**
+
+## 💻 Usage
+
+Run the script directly from your terminal:
+
+```bash
+python port_scanner.py

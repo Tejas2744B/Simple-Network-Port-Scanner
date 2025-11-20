@@ -1,0 +1,2 @@
+# This project uses only Python's standard library (socket, sys, datetime).
+# No external dependencies are strictly required.
